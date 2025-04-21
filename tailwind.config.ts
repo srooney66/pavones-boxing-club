@@ -10,6 +10,9 @@ const config = {
   ],
   prefix: "",
   theme: {
+    colors: {
+      pbcGreen: '#6BA368',
+    }, 
     container: {
       center: true,
       padding: "2rem",

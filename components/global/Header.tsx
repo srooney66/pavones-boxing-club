@@ -1,11 +1,12 @@
 import Link from "next/link";
-import HeaderContactUs from "../buttons/HeaderContactUs";
+import HeaderContactUs from "@/components/buttons/HeaderContactUs";
 import { ThemeSwitcher } from "@/components/theme-switcher";
+import ContactModal from "@/components/modals/ContactModal";
 
 export default function Header() {
   return (
-    <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
-      <div className="w-full max-w-7xl flex justify-between items-center p-3 px-5 text-sm">
+    <nav className="w-full flex justify-center border-b border-b-pbcGreen border-opacity-20 h-16">
+      <div className="w-full max-w-7xl flex justify-between items-center py-3 px-8 text-sm">
         {/* Logo and left nav */}
         <div className="flex gap-5 items-center font-semibold">
           <Link href={"/"}>Pavones Boxing Club</Link>
@@ -15,7 +16,8 @@ export default function Header() {
         </div>
         {/* Right nav */}
         <div className="flex items-end gap-4">
-          <HeaderContactUs />
+          {/* <HeaderContactUs /> */}
+          <ContactModal />
           <ThemeSwitcher />
         </div>
 

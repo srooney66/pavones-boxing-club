@@ -67,12 +67,26 @@
     @apply bg-background text-foreground;
   }
   h1 {
-    @apply text-3xl lg:text-4xl font-bold mb-8;
+    @apply mb-8 text-3xl font-bold lg:text-4xl;
   }
   h2 {
-    @apply text-2xl lg:text-3xl mb-4;
+    @apply mb-4 text-2xl lg:text-3xl;
   }
   p {
-    @apply text-lg;
+    @apply mb-3 text-lg;
+  }
+  /* default iframe handling */
+  .iframe-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+  }
+  .iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
