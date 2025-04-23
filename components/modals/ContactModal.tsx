@@ -10,6 +10,7 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog'
 import { Button } from '../ui/button'
+import MapIframe from '../global/MapIframe'
 
 export default function ContactModal() {
   return (
@@ -19,24 +20,27 @@ export default function ContactModal() {
           Contact Us
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent className="min-h-[200px] w-[50%]">
+      <AlertDialogContent className="min-h-[200px] w-[90%] lg:w-[50%]">
         <AlertDialogHeader className="flex w-full flex-row justify-between">
-          <AlertDialogTitle>Contact Us Today</AlertDialogTitle>
+          <AlertDialogTitle className="text-xl">Contact Us Today!</AlertDialogTitle>
           <AlertDialogCancel className="w-40px !mt-0">X</AlertDialogCancel>
         </AlertDialogHeader>
-        {/* <AlertDialogFooter> */}
-        <AlertDialogDescription>
+
+        <AlertDialogDescription className="text-lg">
           {/* <ul>
             <li>Lead Trainer & Coach: Pierre</li>
             <li>WhatsApp #: 1234567890</li>
           </ul> */}
-          Lead Trainer & Coach: Pierre
+          Trainer & Coach: Pierre (+506 8747-4573)
           <br />
-          Schedule: TBD
+          Schedule: Coming soon
           <br />
-          Contact directly for private training session pricing and details.
+          <br />
+          <em>Contact directly for pricing and private training details.</em>
         </AlertDialogDescription>
-        {/* </AlertDialogFooter> */}
+        <AlertDialogFooter>
+          <MapIframe />
+        </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
   )
