@@ -6,16 +6,11 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Header from "@/components/global/Header";
 import Footer from "@/components/global/Footer";
+import FloatingWhatsApp from "@/components/global/FloatingWhatsApp";
+import SeoHead from "./_seo/SeoHead";
+import { siteMetadata } from "./_seo/metadata";
 
-const defaultUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "http://localhost:3000";
-
-export const metadata = {
-  metadataBase: new URL(defaultUrl),
-  title: "Pavones Boxing Club",
-  description: "The original boxing and muay thai club in Pavones, Costa Rica.",
-};
+export const metadata = siteMetadata;
 
 const geistSans = Geist({
   display: "swap",
@@ -30,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={geistSans.className} suppressHydrationWarning>
       <body className="bg-background text-foreground">
+        <SeoHead />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -39,12 +35,13 @@ export default function RootLayout({
           <main className="min-h-screen flex flex-col items-center">
             <div className="flex-1 w-full flex flex-col gap-20 items-center">
               <Header />
-              <div className="flex flex-col gap-20 max-w-7xl p-5">
+              <div className="flex flex-col gap-20 max-w-7xl p-5 w-full">
                 {children}
               </div>
               <Footer />
             </div>
           </main>
+          <FloatingWhatsApp />
         </ThemeProvider>
       </body>
     </html>

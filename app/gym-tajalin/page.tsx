@@ -1,34 +1,52 @@
 import Gallery from '@/components/Gallery'
 import SectionDivider from '@/components/global/SectionDivider'
-import Image from 'next/image'
+import PageHero from '@/components/global/PageHero'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "Gym Tajalin - Weightlifting, Boxing & Muay Thai | Playa Pavones",
+  description: "Gym Tajalin in Playa Pavones, Costa Rica. Complete fitness facility offering weightlifting, boxing, and muay thai training. Located in the Zona Sur, perfect for locals and tourists.",
+  keywords: [
+    "Gym Tajalin",
+    "gym Playa Pavones",
+    "weightlifting Costa Rica",
+    "fitness Pavones",
+    "gimnasio Pavones",
+    "pesas Pavones",
+    "Zona Sur gym",
+    "Costa Rica fitness"
+  ],
+  openGraph: {
+    title: "Gym Tajalin - Complete Fitness Facility in Playa Pavones",
+    description: "Weightlifting, boxing, and muay thai training at Gym Tajalin in Pavones, Costa Rica.",
+    images: [
+      {
+        url: "https://fysvpznwbdceugzufbnd.supabase.co/storage/v1/object/public/publicMedia/gym-tajalin-logo.jpg",
+        width: 400,
+        height: 400,
+        alt: "Gym Tajalin Logo"
+      }
+    ],
+  },
+}
 
 export default function GymTajalin() {
   return (
     <>
-      <div className="flex w-full flex-col-reverse items-center gap-16 lg:flex-row">
-        <Image
-          src={
-            'https://fysvpznwbdceugzufbnd.supabase.co/storage/v1/object/public/publicMedia/gym-tajalin-logo.jpg'
-          }
-          alt="Gym Tajalin | Playa Pavones, Zona Sur, Costa Rica | Weightlifting, Boxing and Muay Thai"
-          width={400}
-          height={400}
-          priority
-        />
-        <div className="flex w-full flex-col justify-center text-center">
-          <h2>About Gym Tajalin</h2>
-          <SectionDivider />
-          <div className="">
-            <p className="mx-auto max-w-[800px]">
-              <em>Sayd confirmará qué texto va aquí.</em>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-1 flex-col gap-6 px-4">
+      <PageHero
+        imageSrc="https://fysvpznwbdceugzufbnd.supabase.co/storage/v1/object/public/publicMedia/gym-tajalin-logo.jpg"
+        imageAlt="Gym Tajalin | Playa Pavones, Zona Sur, Costa Rica | Weightlifting, Boxing and Muay Thai"
+        imagePosition="left"
+        priority={true}
+      >
+        <h2 className="text-center lg:text-left">About Gym Tajalin</h2>
         <SectionDivider />
-        <Gallery />
-      </div>
+        <p className="mx-auto max-w-[800px] text-center lg:text-left lg:mx-0">
+          <em>Sayd confirmará qué texto va aquí.</em>
+        </p>
+      </PageHero>
+      <SectionDivider />
+      <Gallery />
     </>
   )
 }

@@ -1,5 +1,5 @@
 import { createClient } from '@/utils/supabase/server'
-import Image from 'next/image'
+import PageHero from '@/components/global/PageHero'
 import SectionDivider from '@/components/global/SectionDivider'
 
 export default async function HomeHero() {
@@ -10,26 +10,20 @@ export default async function HomeHero() {
 
   return (
     <>
-      <div className="flex w-full flex-col-reverse items-center gap-16 lg:flex-row">
-        <div className="flex items-center justify-center gap-8">
-          <Image
-            src={heroImgData.publicUrl}
-            alt="Pavones Boxing and Muay Thai Club Trainer and Student"
-            width={600}
-            height={600}
-            priority
-          />
-        </div>
-        <div>
-          <h1 className="text-center">Pavones Boxing and Muay Thai Club</h1>
-          <SectionDivider />
-          <h2 className="mx-auto max-w-xl text-center !leading-tight">
-            The original boxing and muay thai club in
-            <br />
-            Pavones, Costa Rica
-          </h2>
-        </div>
-      </div>
+      <PageHero
+        imageSrc={heroImgData.publicUrl}
+        imageAlt="Pavones Boxing and Muay Thai Club Trainer and Student"
+        imagePosition="left"
+        priority={true}
+      >
+        <h1 className="text-center lg:text-left">Pavones Boxing Club & Muay Thai Club</h1>
+        <SectionDivider />
+        <h2 className="mx-auto max-w-xl text-center lg:text-left !leading-tight lg:mx-0">
+          The original boxing and muay thai club in
+          <br />
+          Pavones, Costa Rica
+        </h2>
+      </PageHero>
       <SectionDivider />
     </>
   )
