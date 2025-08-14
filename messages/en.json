@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "home": "Home",
+    "gymTajalin": "Gym Tajalin",
+    "classes": "Classes",
+    "about": "About",
+    "comingSoon": "Soon"
+  },
+  "hero": {
+    "title": "Pavones Boxing Club & Muay Thai Club",
+    "subtitle": "The original boxing and muay thai club in",
+    "location": "Pavones, Costa Rica"
+  },
+  "about": {
+    "title": "About Pavones Boxing Club",
+    "description": "Pavones Boxing Club was created in 2024 to improve access to fitness training, classes and activities including boxing, muay thai, kickboxing, weight training, cardio, core, flexibility and much more. In addition, the club trainers and coaches offer private training sessions personalized to your needs. Pavones Boxing Club is located in Playa Pavones, Costa Rica. Nestled in the breath-taking jungles and beaches of the souther pacific zone of Costa Rica, it's no wonder that people travel from all over the world to surf in Pavones and train at Pavones Boxing Club."
+  },
+  "gymTajalin": {
+    "title": "About Gym Tajalin",
+    "placeholder": "Content coming soon"
+  },
+  "contact": {
+    "button": "Contact Us",
+    "title": "Contact Us Today!",
+    "close": "Close",
+    "trainer": "Trainer & Coach",
+    "schedule": "Schedule",
+    "scheduleComingSoon": "Coming soon",
+    "pricing": "Contact directly for pricing and private training details",
+    "whatsapp": "WhatsApp"
+  },
+  "footer": {
+    "contactLocation": "Contact & Location",
+    "mainRoad": "Main Road, Pavones",
+    "location": "Puntarenas, Costa Rica",
+    "contactForSchedule": "Contact for schedule",
+    "quickLinks": "Quick Links",
+    "training": "Training",
+    "boxingTraining": "Boxing Training",
+    "muayThaiClasses": "Muay Thai Classes",
+    "privateSessions": "Private Sessions Available",
+    "allLevels": "All Skill Levels Welcome",
+    "professionalCoaching": "Professional Coaching",
+    "coach": "Coach",
+    "rights": "All rights reserved",
+    "developedBy": "Development & hosting by"
+  },
+  "gallery": {
+    "previousImages": "View previous images",
+    "nextImages": "View next images"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "accessibility": {
+    "openMenu": "Open main menu",
+    "contactWhatsApp": "Contact us on WhatsApp"
+  }
+}

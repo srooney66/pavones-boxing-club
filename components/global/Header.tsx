@@ -1,24 +1,77 @@
-import Link from 'next/link'
+import LocalizedLink from '@/components/global/LocalizedLink'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import ContactModal from '@/components/modals/ContactModal'
+import { Phone } from 'lucide-react'
+import MobileMenuToggle from './MobileMenuToggle'
+import LanguageSwitcher from './LanguageSwitcher'
+import { getTranslations } from 'next-intl/server'
 
-export default function Header() {
+export default async function Header() {
+  const t = await getTranslations('nav')
+  
+  const navItems = [
+    { href: '/', label: t('home') },
+    { href: '/gym-tajalin', label: t('gymTajalin') },
+    { href: '#classes', label: t('classes'), comingSoon: true },
+    { href: '#about', label: t('about') },
+  ]
+
   return (
-    <nav className="flex h-16 w-full justify-center border-b border-b-pbcGreen border-opacity-20">
-      <div className="flex w-full max-w-7xl items-center justify-between px-8 py-3 text-sm">
-        {/* Logo and left nav */}
-        <div className="flex items-center gap-5 font-semibold">
-          <Link href={'/'}>Pavones Boxing Club</Link>
-          <div className="flex items-center gap-2">
-            {/* OPTIONAL: Add left hand side nav menu to the right of the logo */}
+    <nav className="sticky top-0 z-50 w-full border-b border-b-pbcGreen border-opacity-20 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo and Desktop Nav */}
+          <div className="flex items-center">
+            <LocalizedLink href="/" className="flex-shrink-0">
+              <span className="text-xl font-bold text-pbcGreen">Pavones Boxing Club</span>
+            </LocalizedLink>
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:ml-10 md:flex md:space-x-8">
+              {navItems.map((item) => (
+                <LocalizedLink
+                  key={item.href}
+                  href={item.href}
+                  className="inline-flex items-center px-1 pt-1 text-sm font-medium text-foreground/80 hover:text-pbcGreen transition-colors"
+                >
+                  {item.label}
+                  {item.comingSoon && (
+                    <span className="ml-2 text-xs text-muted-foreground">({t('comingSoon')})</span>
+                  )}
+                </LocalizedLink>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop Right Side - Contact Info */}
+          <div className="hidden md:flex md:items-center md:space-x-6">
+            <a
+              href="https://wa.me/50687474573"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm font-medium text-pbcGreen hover:text-pbcGreen/80 transition-colors"
+            >
+              <Phone className="h-4 w-4" />
+              <span>+506 8747-4573</span>
+            </a>
+            <ContactModal />
+            <LanguageSwitcher />
+            <ThemeSwitcher />
+          </div>
+
+          {/* Mobile menu button and phone */}
+          <div className="flex items-center md:hidden">
+            <a
+              href="https://wa.me/50687474573"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mr-4 text-pbcGreen"
+            >
+              <Phone className="h-5 w-5" />
+            </a>
+            <MobileMenuToggle navItems={navItems} />
           </div>
         </div>
-        {/* Right nav */}
-        <div className="flex items-end gap-4">
-          <ContactModal />
-          <ThemeSwitcher />
-        </div>
-        {/* {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />} */}
       </div>
     </nav>
   )

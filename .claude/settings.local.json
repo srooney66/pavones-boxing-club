@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "Bash(ls:*)",
+      "WebFetch(domain:next-intl.dev)",
+      "Bash(npm run lint)",
+      "Bash(true)",
+      "WebFetch(domain:next-intl-docs.vercel.app)"
+    ],
+    "deny": []
+  }
+}

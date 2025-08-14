@@ -6,7 +6,7 @@ export default async function VideoIframe({ srcUrl }: { srcUrl: string }) {
       </p>
     )
   return (
-    <div className="iframe-wrapper">
+    <div className="iframe-wrapper mx-auto max-w-4xl">
       <iframe
         src={srcUrl}
         width="100%"

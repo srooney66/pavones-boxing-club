@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "gymTajalin": "Gym Tajalin",
+    "classes": "Clases",
+    "about": "Acerca de",
+    "comingSoon": "Pronto"
+  },
+  "hero": {
+    "title": "Pavones Boxing Club & Muay Thai",
+    "subtitle": "El club original de boxeo y muay thai en",
+    "location": "Pavones, Costa Rica"
+  },
+  "about": {
+    "title": "Acerca de Pavones Boxing Club",
+    "description": "Pavones Boxing Club fue creado en 2024 para mejorar el acceso al entrenamiento físico, clases y actividades que incluyen boxeo, muay thai, kickboxing, entrenamiento con pesas, cardio, core, flexibilidad y mucho más. Además, los entrenadores del club ofrecen sesiones de entrenamiento privadas personalizadas según tus necesidades. Pavones Boxing Club está ubicado en Playa Pavones, Costa Rica. Ubicado en las impresionantes selvas y playas de la zona sur del Pacífico de Costa Rica, no es de extrañar que personas de todo el mundo viajen para surfear en Pavones y entrenar en Pavones Boxing Club."
+  },
+  "gymTajalin": {
+    "title": "Acerca de Gym Tajalin",
+    "placeholder": "Contenido próximamente"
+  },
+  "contact": {
+    "button": "Contáctanos",
+    "title": "¡Contáctanos Hoy!",
+    "close": "Cerrar",
+    "trainer": "Entrenador",
+    "schedule": "Horario",
+    "scheduleComingSoon": "Próximamente",
+    "pricing": "Contáctanos directamente para precios y detalles de entrenamiento privado",
+    "whatsapp": "WhatsApp"
+  },
+  "footer": {
+    "contactLocation": "Contacto y Ubicación",
+    "mainRoad": "Carretera Principal, Pavones",
+    "location": "Puntarenas, Costa Rica",
+    "contactForSchedule": "Contacta para horario",
+    "quickLinks": "Enlaces Rápidos",
+    "training": "Entrenamiento",
+    "boxingTraining": "Entrenamiento de Boxeo",
+    "muayThaiClasses": "Clases de Muay Thai",
+    "privateSessions": "Sesiones Privadas Disponibles",
+    "allLevels": "Todos los Niveles Bienvenidos",
+    "professionalCoaching": "Entrenamiento Profesional",
+    "coach": "Entrenador",
+    "rights": "Todos los derechos reservados",
+    "developedBy": "Desarrollo y hosting por"
+  },
+  "gallery": {
+    "previousImages": "Ver imágenes anteriores",
+    "nextImages": "Ver siguientes imágenes"
+  },
+  "theme": {
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+  "accessibility": {
+    "openMenu": "Abrir menú principal",
+    "contactWhatsApp": "Contáctanos por WhatsApp"
+  }
+}
