@@ -1,15 +1,19 @@
-import Link from 'next/link'
+import LocalizedLink from '@/components/global/LocalizedLink'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import ContactModal from '@/components/modals/ContactModal'
 import { Phone } from 'lucide-react'
 import MobileMenuToggle from './MobileMenuToggle'
+import LanguageSwitcher from './LanguageSwitcher'
+import { getTranslations } from 'next-intl/server'
 
-export default function Header() {
+export default async function Header() {
+  const t = await getTranslations('nav')
+  
   const navItems = [
-    { href: '/', label: 'Home' },
-    { href: '/gym-tajalin', label: 'Gym Tajalin' },
-    { href: '#classes', label: 'Classes', comingSoon: true },
-    { href: '#about', label: 'About' },
+    { href: '/', label: t('home') },
+    { href: '/gym-tajalin', label: t('gymTajalin') },
+    { href: '#classes', label: t('classes'), comingSoon: true },
+    { href: '#about', label: t('about') },
   ]
 
   return (
@@ -18,23 +22,23 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo and Desktop Nav */}
           <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0">
+            <LocalizedLink href="/" className="flex-shrink-0">
               <span className="text-xl font-bold text-pbcGreen">Pavones Boxing Club</span>
-            </Link>
+            </LocalizedLink>
             
             {/* Desktop Navigation */}
             <div className="hidden md:ml-10 md:flex md:space-x-8">
               {navItems.map((item) => (
-                <Link
+                <LocalizedLink
                   key={item.href}
                   href={item.href}
                   className="inline-flex items-center px-1 pt-1 text-sm font-medium text-foreground/80 hover:text-pbcGreen transition-colors"
                 >
                   {item.label}
                   {item.comingSoon && (
-                    <span className="ml-2 text-xs text-muted-foreground">(Soon)</span>
+                    <span className="ml-2 text-xs text-muted-foreground">({t('comingSoon')})</span>
                   )}
-                </Link>
+                </LocalizedLink>
               ))}
             </div>
           </div>
@@ -51,6 +55,7 @@ export default function Header() {
               <span>+506 8747-4573</span>
             </a>
             <ContactModal />
+            <LanguageSwitcher />
             <ThemeSwitcher />
           </div>
 

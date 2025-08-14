@@ -2,9 +2,10 @@
 
 import { useState } from 'react'
 import { Menu, X, Phone } from 'lucide-react'
-import Link from 'next/link'
+import LocalizedLink from '@/components/global/LocalizedLink'
 import ContactModal from '@/components/modals/ContactModal'
 import { ThemeSwitcher } from '@/components/theme-switcher'
+import LanguageSwitcher from './LanguageSwitcher'
 
 interface NavItem {
   href: string
@@ -34,7 +35,7 @@ export default function MobileMenuToggle({ navItems }: { navItems: NavItem[] }) 
         <div className="absolute left-0 right-0 top-16 md:hidden bg-background border-b border-pbcGreen/20">
           <div className="space-y-1 pb-3 pt-2">
             {navItems.map((item) => (
-              <Link
+              <LocalizedLink
                 key={item.href}
                 href={item.href}
                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-foreground/80 hover:border-pbcGreen hover:bg-muted hover:text-pbcGreen"
@@ -44,7 +45,7 @@ export default function MobileMenuToggle({ navItems }: { navItems: NavItem[] }) 
                 {item.comingSoon && (
                   <span className="ml-2 text-xs text-muted-foreground">(Coming Soon)</span>
                 )}
-              </Link>
+              </LocalizedLink>
             ))}
             <div className="border-t border-muted px-4 py-3">
               <div className="flex flex-col space-y-3">
@@ -58,7 +59,8 @@ export default function MobileMenuToggle({ navItems }: { navItems: NavItem[] }) 
                   <span>WhatsApp: +506 8747-4573</span>
                 </a>
                 <ContactModal />
-                <div className="pt-2">
+                <div className="pt-2 flex items-center gap-4">
+                  <LanguageSwitcher />
                   <ThemeSwitcher />
                 </div>
               </div>
