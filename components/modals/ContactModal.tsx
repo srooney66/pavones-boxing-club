@@ -15,6 +15,7 @@ import { Button } from '../ui/button'
 import MapIframe from '../global/MapIframe'
 import { useTranslations } from 'next-intl'
 import { Phone, Clock, MapPin, MessageCircle, X } from 'lucide-react'
+import { trackEvent } from '@/lib/analytics'
 
 export default function ContactModal() {
   const t = useTranslations('contact')
@@ -22,7 +23,12 @@ export default function ContactModal() {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button size="sm" variant="default" className="hover:bg-pbcGreen hover:text-white transition-colors">
+        <Button
+          size="sm"
+          variant="default"
+          className="hover:bg-pbcGreen hover:text-white transition-colors"
+          onClick={() => trackEvent('contact_modal_open')}
+        >
           {t('button')}
         </Button>
       </AlertDialogTrigger>
@@ -40,11 +46,12 @@ export default function ContactModal() {
               <Phone className="h-5 w-5 text-pbcGreen mt-0.5" />
               <div>
                 <p className="font-semibold text-foreground">{t('trainer')}: Pierre</p>
-                <a 
-                  href="https://wa.me/50687474573" 
+                <a
+                  href="https://wa.me/50687474573"
                   className="text-pbcGreen hover:underline flex items-center gap-1 mt-1"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('whatsapp_click', { source: 'contact_modal' })}
                 >
                   <MessageCircle className="h-4 w-4" />
                   +506 8747-4573 ({t('whatsapp')})
@@ -79,11 +86,12 @@ export default function ContactModal() {
         </div>
 
         <AlertDialogFooter className="px-6 pb-6">
-          <a 
-            href="https://wa.me/50687474573" 
+          <a
+            href="https://wa.me/50687474573"
             className="w-full"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent('whatsapp_click', { source: 'contact_modal' })}
           >
             <Button className="w-full bg-pbcGreen hover:bg-pbcGreen/90 text-white gap-2">
               <MessageCircle className="h-4 w-4" />

@@ -1,6 +1,7 @@
 import LocalizedLink from '@/components/global/LocalizedLink'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import ContactModal from '@/components/modals/ContactModal'
+import TrackedWhatsAppLink from '@/components/global/TrackedWhatsAppLink'
 import { Phone } from 'lucide-react'
 import MobileMenuToggle from './MobileMenuToggle'
 import LanguageSwitcher from './LanguageSwitcher'
@@ -45,15 +46,13 @@ export default async function Header() {
 
           {/* Desktop Right Side - Contact Info */}
           <div className="hidden md:flex md:items-center md:space-x-6">
-            <a
-              href="https://wa.me/50687474573"
-              target="_blank"
-              rel="noopener noreferrer"
+            <TrackedWhatsAppLink
+              source="header_desktop"
               className="flex items-center gap-2 text-sm font-medium text-pbcGreen hover:text-pbcGreen/80 transition-colors"
             >
               <Phone className="h-4 w-4" />
               <span>+506 8747-4573</span>
-            </a>
+            </TrackedWhatsAppLink>
             <ContactModal />
             <LanguageSwitcher />
             <ThemeSwitcher />
@@ -61,14 +60,12 @@ export default async function Header() {
 
           {/* Mobile menu button and phone */}
           <div className="flex items-center md:hidden">
-            <a
-              href="https://wa.me/50687474573"
-              target="_blank"
-              rel="noopener noreferrer"
+            <TrackedWhatsAppLink
+              source="header_mobile"
               className="mr-4 text-pbcGreen"
             >
               <Phone className="h-5 w-5" />
-            </a>
+            </TrackedWhatsAppLink>
             <MobileMenuToggle navItems={navItems} />
           </div>
         </div>
