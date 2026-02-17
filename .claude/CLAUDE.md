@@ -6,6 +6,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is the Pavones Boxing Club website - a Next.js 15 application for a boxing and muay thai gym in Costa Rica. The site features public pages for gym information, a gallery, and **full internationalization support (English/Spanish)**.
 
+- **Production URL**: `pavonesboxingclub.com`
+- **Deployed on**: Vercel (uses `VERCEL_URL` env var for base URL)
+
+### Environment Variables
+
+```
+NEXT_PUBLIC_SUPABASE_URL=        # Supabase project URL
+NEXT_PUBLIC_SUPABASE_ANON_KEY=   # Supabase anonymous key
+# VERCEL_URL is set automatically by Vercel at deploy time
+```
+
 ## Development Commands
 
 ```bash
@@ -34,20 +45,29 @@ npx prettier --write .
 - **Next.js 15** with App Router - All pages use the `/app/[locale]` directory structure for i18n
 - **React 19** with TypeScript - Components use modern React patterns and server components where appropriate
 - **next-intl** - Handles internationalization with English and Spanish support
-- **Supabase** - Handles database and media storage
+- **Supabase** - Handles database and media storage (images from Supabase storage)
 - **Tailwind CSS** with shadcn/ui - Styling uses utility classes and pre-built components from `/components/ui`
 - **Theme Support** - Dark/light mode via next-themes
+
+### Current Routes
+Only two pages exist under `/app/[locale]/`:
+- `/` - Home page (HomeHero + AboutPBC + Gallery)
+- `/gym-tajalin` - Gym Tajalin page (PageHero + Gallery)
+
+Note: `sitemap.ts` references `/sign-in`, `/sign-up`, `/forgot-password` but these pages do not exist yet.
 
 ### Internationalization (i18n) Architecture
 
 The site supports English (`en`) and Spanish (`es`) languages with automatic locale detection and routing.
 
 #### Key i18n Files:
-- `/lib/i18n/routing.ts` - Defines supported locales and navigation exports
-- `/lib/i18n/request.ts` - Configures message loading for server components
-- `/messages/en.json` - English translations
-- `/messages/es.json` - Spanish translations
-- `/middleware.ts` - Handles locale routing and redirects
+- `/lib/i18n/routing.ts` - Defines supported locales (`en`, `es`), default locale (`en`), `localePrefix: 'always'`, and exports `Link`, `redirect`, `usePathname`, `useRouter`
+- `/lib/i18n/request.ts` - Configures dynamic message loading per locale for server components
+- `/messages/en.json` and `/messages/es.json` - Translation files
+- `/middleware.ts` - Uses only `next-intl/middleware` for locale routing (Supabase auth middleware exists in `utils/supabase/middleware.ts` but is **not wired in**)
+
+#### Translation Namespaces:
+`nav`, `hero`, `about`, `gymTajalin`, `contact`, `footer`, `gallery`, `theme`, `accessibility`
 
 #### i18n Patterns:
 
@@ -103,32 +123,30 @@ export async function generateMetadata({ params }: { params: Promise<{locale: st
    - `/components/modals/` - Modal components like ContactModal
    - Page-specific components are co-located with their pages
 
-3. **SEO & Metadata**
-   - `/app/_seo/metadata.ts` - Centralized metadata generation with locale support
-   - Each page can override with locale-specific metadata
-   - Structured data includes multi-language support
-
-4. **Supabase Integration**
+3. **Supabase Integration**
    - Client creation in `/utils/supabase/client.ts` (browser) and `/utils/supabase/server.ts` (server)
    - Environment variables: `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`
    - Images served from Supabase storage, configured in `next.config.ts`
 
-5. **Styling Approach**
+4. **Styling Approach**
    - Use Tailwind utility classes for styling
-   - Custom brand color available as `pbcGreen` (defined as #6BA368)
+   - Custom brand color `pbcGreen` (#6BA368) is defined at `theme.colors` in tailwind config — **this replaces the entire default Tailwind color palette**. Standard colors like `white`, `black`, `red-500` etc. are NOT available. Only `pbcGreen` and the CSS variable-based shadcn colors in `extend.colors` work.
    - Components use `cn()` utility from `/lib/utils` for conditional classes
    - Follow existing component patterns when creating new UI elements
 
+5. **SEO**
+   - `/app/_seo/metadata.ts` - `generateSiteMetadata(locale)` for locale-aware metadata
+   - `/app/_seo/structured-data.ts` - Schema.org `SportsActivityLocation` JSON-LD
+   - `/app/_seo/SeoHead.tsx` - Injects structured data script tag
+   - `/app/robots.ts` and `/app/sitemap.ts` - Auto-generated SEO files
+
 ### Important Files and Their Roles
 
-- `/app/layout.tsx` - Minimal root layout (just HTML structure)
-- `/app/[locale]/layout.tsx` - Locale-specific layout with providers and global components
-- `/lib/i18n/routing.ts` - i18n routing configuration and navigation exports
-- `/lib/i18n/request.ts` - Server-side i18n configuration
-- `/messages/*.json` - Translation files for each locale
-- `/middleware.ts` - Handles locale routing
-- `/components/global/LanguageSwitcher.tsx` - Language switching component
-- `/components/global/LocalizedLink.tsx` - Wrapper for i18n-aware navigation
+- `/app/layout.tsx` - Minimal root layout (HTML shell + Geist font)
+- `/app/[locale]/layout.tsx` - Locale-specific layout with providers, Header, Footer, FloatingWhatsApp
+- `/middleware.ts` - Locale routing only (next-intl)
+- `/components/global/LocalizedLink.tsx` - Wrapper for i18n-aware navigation; also exports `ExternalLink` for outbound links
+- `/components/global/FloatingWhatsApp.tsx` - Fixed WhatsApp FAB (mobile only)
 
 ## Code Conventions
 
@@ -159,11 +177,12 @@ npx shadcn@latest add [component-name]
 
 ## Common Gotchas
 
-1. **Dynamic Imports in request.ts** - The messages are loaded with dynamic imports to only load needed locale
-2. **Await Params in Next.js 15** - Always await params: `const { locale } = await params`
-3. **Client vs Server Translations** - Use `getTranslations` (server) vs `useTranslations` (client)
+1. **Await Params in Next.js 15** - Always await params: `const { locale } = await params`
+2. **Client vs Server Translations** - Use `getTranslations` (server) vs `useTranslations` (client)
+3. **Tailwind Default Colors Missing** - `pbcGreen` replaces (not extends) the default palette. Use CSS variable-based colors from shadcn (e.g., `bg-background`, `text-foreground`) or add needed colors to `extend.colors`
 4. **Scroll Position** - Language switcher preserves scroll to prevent jarring UX
 5. **Locale in URLs** - All internal links automatically get locale prefix via LocalizedLink
+6. **Supabase Auth Not Active** - Auth middleware exists (`utils/supabase/middleware.ts`) but is not connected in `middleware.ts`. If enabling auth, wire `updateSession` into the middleware chain.
 
 ## Testing i18n
 

@@ -57,7 +57,7 @@ export default async function GymTajalin() {
         <h2 className="text-center lg:text-left">{t('title')}</h2>
         <SectionDivider />
         <p className="mx-auto max-w-[800px] text-center lg:text-left lg:mx-0">
-          <em>{t('placeholder')}</em>
+          {t('description')}
         </p>
       </PageHero>
       <SectionDivider />
