@@ -32,7 +32,7 @@ export default function MobileMenuToggle({ navItems }: { navItems: NavItem[] }) 
 
       {/* Mobile menu dropdown */}
       {isMenuOpen && (
-        <div className="absolute left-0 right-0 top-16 md:hidden bg-background border-b border-pbcGreen/20">
+        <div className="absolute left-0 right-0 top-16 lg:hidden bg-background border-b border-pbcGreen/20">
           <div className="space-y-1 pb-3 pt-2">
             {navItems.map((item) => (
               <LocalizedLink

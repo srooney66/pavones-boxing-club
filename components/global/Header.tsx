@@ -13,7 +13,6 @@ export default async function Header() {
   const navItems = [
     { href: '/', label: t('home') },
     { href: '/gym-tajalin', label: t('gymTajalin') },
-    { href: '#classes', label: t('classes'), comingSoon: true },
     { href: '#about', label: t('about') },
   ]
 
@@ -28,7 +27,7 @@ export default async function Header() {
             </LocalizedLink>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:ml-10 md:flex md:space-x-8">
+            <div className="hidden lg:ml-10 lg:flex lg:space-x-8">
               {navItems.map((item) => (
                 <LocalizedLink
                   key={item.href}
@@ -36,16 +35,13 @@ export default async function Header() {
                   className="inline-flex items-center px-1 pt-1 text-sm font-medium text-foreground/80 hover:text-pbcGreen transition-colors"
                 >
                   {item.label}
-                  {item.comingSoon && (
-                    <span className="ml-2 text-xs text-muted-foreground">({t('comingSoon')})</span>
-                  )}
                 </LocalizedLink>
               ))}
             </div>
           </div>
 
           {/* Desktop Right Side - Contact Info */}
-          <div className="hidden md:flex md:items-center md:space-x-6">
+          <div className="hidden lg:flex lg:items-center lg:space-x-6">
             <TrackedWhatsAppLink
               source="header_desktop"
               className="flex items-center gap-2 text-sm font-medium text-pbcGreen hover:text-pbcGreen/80 transition-colors"
@@ -59,7 +55,7 @@ export default async function Header() {
           </div>
 
           {/* Mobile menu button and phone */}
-          <div className="flex items-center md:hidden">
+          <div className="flex items-center lg:hidden">
             <TrackedWhatsAppLink
               source="header_mobile"
               className="mr-4 text-pbcGreen"
