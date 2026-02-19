@@ -55,13 +55,8 @@ export default async function Footer() {
                 </LocalizedLink>
               </li>
               <li>
-                <LocalizedLink href="#classes" className="hover:text-pbcGreen transition-colors">
-                  {tNav('classes')} <span className="text-xs text-muted-foreground">({tNav('comingSoon')})</span>
-                </LocalizedLink>
-              </li>
-              <li>
-                <LocalizedLink href="#about" className="hover:text-pbcGreen transition-colors">
-                  {tNav('about')}
+                <LocalizedLink href="/muay-thai-and-surf-camp-pavones-cr" className="hover:text-pbcGreen transition-colors">
+                  {tNav('camp')}
                 </LocalizedLink>
               </li>
             </ul>
