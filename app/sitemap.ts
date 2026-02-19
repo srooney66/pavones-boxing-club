@@ -33,22 +33,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     },
     {
-      url: `${baseUrl}/sign-in`,
+      url: `${baseUrl}/muay-thai-and-surf-camp-pavones-cr`,
       lastModified: currentDate,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/sign-up`,
-      lastModified: currentDate,
-      changeFrequency: "yearly",
-      priority: 0.4,
-    },
-    {
-      url: `${baseUrl}/forgot-password`,
-      lastModified: currentDate,
-      changeFrequency: "yearly",
-      priority: 0.2,
+      changeFrequency: "weekly",
+      priority: 0.9,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/muay-thai-and-surf-camp-pavones-cr`,
+          es: `${baseUrl}/es/muay-thai-and-surf-camp-pavones-cr`,
+        },
+      },
     },
   ];
 }

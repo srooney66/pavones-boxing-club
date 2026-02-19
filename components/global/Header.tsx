@@ -13,7 +13,7 @@ export default async function Header() {
   const navItems = [
     { href: '/', label: t('home') },
     { href: '/gym-tajalin', label: t('gymTajalin') },
-    { href: '#about', label: t('about') },
+    { href: '/muay-thai-and-surf-camp-pavones-cr', label: t('camp') },
   ]
 
   return (

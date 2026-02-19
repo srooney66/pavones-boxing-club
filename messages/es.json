@@ -3,6 +3,7 @@
     "home": "Inicio",
     "gymTajalin": "Gym Tajalin",
     "classes": "Clases",
+    "camp": "Camp",
     "about": "Acerca de",
     "comingSoon": "Pronto"
   },
@@ -57,5 +58,105 @@
   "accessibility": {
     "openMenu": "Abrir menú principal",
     "contactWhatsApp": "Contáctanos por WhatsApp"
+  },
+  "surfCamp": {
+    "meta": {
+      "title": "Camp de Muay Thai y Surf — Pavones, Costa Rica | 2027",
+      "description": "Un mes de entrenamiento profesional de muay thai y surf de clase mundial en Pavones, Costa Rica. Alojamiento, entrenamiento y equipo incluidos. Próximamente en 2027."
+    },
+    "hero": {
+      "title": "Entrena Muay Thai. Surfea Olas de Clase Mundial.",
+      "subtitle": "Pavones, Costa Rica",
+      "badge": "Próximamente 2027"
+    },
+    "features": {
+      "training": {
+        "title": "Entrenamiento Profesional de Muay Thai",
+        "description": "Sesiones diarias con entrenadores experimentados. Trabajo de pads, clinch, técnica y acondicionamiento para todos los niveles."
+      },
+      "surf": {
+        "title": "Surf de Clase Mundial",
+        "description": "Surfea una de las olas izquierdas más largas del mundo. Sesiones guiadas para principiantes hasta avanzados."
+      },
+      "lodging": {
+        "title": "Alojamiento Incluido",
+        "description": "Alojamiento cómodo a pasos de la playa. Enfócate en entrenar y surfear — nosotros nos encargamos del resto."
+      },
+      "allLevels": {
+        "title": "Todos los Niveles Bienvenidos",
+        "description": "¿Nunca has lanzado una patada o atrapado una ola? No hay problema. Nuestros entrenadores se adaptan a tu nivel."
+      }
+    },
+    "schedule": {
+      "title": "Ejemplo de Horario Semanal",
+      "monday": "Lunes",
+      "tuesday": "Martes",
+      "wednesday": "Miércoles",
+      "thursday": "Jueves",
+      "friday": "Viernes",
+      "saturday": "Sábado",
+      "sunday": "Domingo",
+      "morning": "Mañana",
+      "afternoon": "Tarde",
+      "muayThai": "Entrenamiento de Muay Thai",
+      "surf": "Sesión de Surf",
+      "conditioning": "Acondicionamiento y Técnica",
+      "freeSurf": "Surf Libre",
+      "rest": "Descanso y Recuperación",
+      "excursion": "Excursión/Tiempo Libre"
+    },
+    "location": {
+      "title": "Sobre Pavones",
+      "description": "Escondido en la costa sur del Pacífico de Costa Rica, Pavones es una joya oculta lejos de las multitudes turísticas. Conocido entre surfistas por su legendaria ola izquierda, el pueblo se encuentra donde la selva se encuentra con el océano. Es crudo, hermoso y el escenario perfecto para un mes de entrenamiento y aventura."
+    },
+    "coach": {
+      "title": "Tu Entrenador",
+      "name": "Pierre",
+      "description": "Pierre es el fundador y entrenador principal de Pavones Boxing Club — el gimnasio original de boxeo y muay thai en Pavones. Con años de experiencia entrenando peleadores y principiantes por igual, Pierre ofrece entrenamiento de nivel profesional en un entorno de clase mundial."
+    },
+    "pricing": {
+      "title": "Precios",
+      "startingFrom": "Desde",
+      "price": "$2,500",
+      "period": "/ mes",
+      "badge": "Próximamente 2027",
+      "includesTitle": "Incluye:",
+      "includes": {
+        "training": "Entrenamiento diario de muay thai",
+        "surf": "Sesiones de surf guiadas",
+        "lodging": "Alojamiento por un mes",
+        "coaching": "Entrenamiento profesional"
+      }
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "items": {
+        "level": {
+          "question": "¿Necesito experiencia en muay thai o surf?",
+          "answer": "Para nada. El camp está diseñado para todos los niveles — desde principiantes completos hasta practicantes experimentados. Nuestros entrenadores adaptarán el entrenamiento a tu capacidad."
+        },
+        "bring": {
+          "question": "¿Qué debo traer?",
+          "answer": "Trae tu equipo personal (ropa, protector solar, etc.), equipo de entrenamiento y tabla de surf si tienes. Podemos ayudarte a gestionar el alquiler de tablas de surf si lo necesitas."
+        },
+        "lodging": {
+          "question": "¿Cómo es el alojamiento?",
+          "answer": "Ofrecemos diferentes opciones de alojamiento según la experiencia que buscas. Te garantizamos fácil acceso al gimnasio, al surf y a la selva de Pavones. Te daremos más detalles sobre opciones de alojamiento específicas al contactarnos si estás interesado."
+        },
+        "travel": {
+          "question": "¿Cómo llego a Pavones?",
+          "answer": "Vuela a San José (SJO). Desde allí, toma un vuelo rápido de 45 minutos a Golfito o haz el recorrido panorámico de 6 horas hasta Pavones, en la costa sur del Pacífico."
+        },
+        "dates": {
+          "question": "¿Cuándo es exactamente el camp?",
+          "answer": "El camp está planeado para 2027. El mes exacto aún se está definiendo. Registra tu interés y te notificaremos tan pronto como se confirmen las fechas."
+        }
+      }
+    },
+    "cta": {
+      "title": "¿Listo para entrenar y surfear?",
+      "subtitle": "Los cupos son limitados. Contáctanos para reservar el tuyo.",
+      "button": "Envíanos un mensaje"
+    }
   }
 }
